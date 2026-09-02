@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500&display=swap">
+  <style>
+    body { margin: 0; background: #0d1015; font-family: "IBM Plex Sans", "Helvetica Neue", Helvetica, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #e8ecef; text-decoration: none; }
+    a:hover { color: #3fd0d4; }
+    p { margin: 0; text-wrap: pretty; }
+    h1, h2, h3 { margin: 0; font-family: "Space Grotesk", "Helvetica Neue", Helvetica, sans-serif; text-wrap: balance; }
+  </style>
+</helmet>
+
+<div style="width: 390px; background: #0d1015; color: #f2f4f6; display: flex; flex-direction: column">
+
+  <!-- NAV -->
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid rgba(255,255,255,0.08)">
+    <div style="display: flex; flex-direction: column; gap: 3px">
+      <div style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; line-height: 1">Shab</div>
+      <div style="font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: #8d959e">Digital | Data | Cyber</div>
+    </div>
+    <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f2f4f6" stroke-width="1.5" stroke-linecap="square" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 7h18M3 12h18M3 17h18"></path>
+      </svg>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div style="display: flex; flex-direction: column; gap: 24px; padding: 56px 24px 56px 24px">
+    <div style="display: flex; align-items: center; gap: 10px">
+      <div style="width: 22px; height: 1px; background: {{accent}}"></div>
+      <div style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: {{accent}}">Independent consultancy</div>
+    </div>
+    <h1 style="font-size: 36px; line-height: 1.1; font-weight: 600; letter-spacing: -0.02em">Technology decisions your board can actually stand behind.</h1>
+    <p style="font-size: 16px; line-height: 1.65; color: #a3abb4">Shab works with organisations that have outgrown their systems and are carrying more risk than they can see. Three practices — digital, data and cyber — run by the people who do the work.</p>
+    <div style="display: flex; flex-direction: column; gap: 14px; padding-top: 4px">
+      <div style="display: flex; align-items: center; justify-content: center; height: 52px; border-radius: 2px; background: {{accent}}; color: #06181a; font-size: 15px; font-weight: 600">Book a 30-minute call</div>
+      <div style="font-size: 13px; line-height: 1.5; color: #8d959e">No pitch deck. We'll tell you if we're not the right fit.</div>
+    </div>
+    <div style="display: flex; justify-content: center; padding-top: 16px">
+      <svg width="260" height="260" viewBox="0 0 380 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0.5" y="0.5" width="379" height="379" stroke="rgba(255,255,255,0.07)"></rect>
+        <path d="M0 95H380M0 190H380M0 285H380M95 0V380M190 0V380M285 0V380" stroke="rgba(255,255,255,0.045)"></path>
+        <path d="M190 46L306 96V196C306 262 254 316 190 336C126 316 74 262 74 196V96L190 46Z" stroke="rgba(255,255,255,0.18)" stroke-width="1.6"></path>
+        <path d="M190 96L258 125V193C258 234 228 267 190 281C152 267 122 234 122 193V125L190 96Z" stroke="#3fd0d4" stroke-width="2"></path>
+        <path d="M158 190L182 214L226 166" stroke="#3fd0d4" stroke-width="2.6" stroke-linecap="square"></path>
+      </svg>
+    </div>
+  </div>
+
+  <div style="height: 1px; background: rgba(255,255,255,0.08)"></div>
+
+  <!-- TRUST -->
+  <div style="display: flex; flex-direction: column; gap: 20px; padding: 36px 24px">
+    <div style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6f7780">Trusted by teams at</div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+      <div style="height: 48px; display: flex; align-items: center; justify-content: center; border: 1px dashed rgba(255,255,255,0.14); font-size: 12px; color: #6f7780">[CLIENT LOGO]</div>
+      <div style="height: 48px; display: flex; align-items: center; justify-content: center; border: 1px dashed rgba(255,255,255,0.14); font-size: 12px; color: #6f7780">[CLIENT LOGO]</div>
+      <div style="height: 48px; display: flex; align-items: center; justify-content: center; border: 1px dashed rgba(255,255,255,0.14); font-size: 12px; color: #6f7780">[CLIENT LOGO]</div>
+      <div style="height: 48px; display: flex; align-items: center; justify-content: center; border: 1px dashed rgba(255,255,255,0.14); font-size: 12px; color: #6f7780">[CLIENT LOGO]</div>
+    </div>
+  </div>
+
+  <div style="height: 1px; background: rgba(255,255,255,0.08)"></div>
+
+  <!-- SERVICES -->
+  <div style="display: flex; flex-direction: column; gap: 32px; padding: 56px 24px">
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <div style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: {{accent}}">Three practices</div>
+      <h2 style="font-size: 28px; line-height: 1.18; font-weight: 600; letter-spacing: -0.02em">Most problems sit between them. So do we.</h2>
+      <p style="font-size: 15px; line-height: 1.65; color: #8d959e">A failed migration is rarely just a technology problem, and a breach is rarely just a security one.</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 16px">
+
+      <div style="display: flex; flex-direction: column; gap: 18px; padding: 28px 24px; background: #14181e; border: 1px solid rgba(255,255,255,0.07); border-radius: 3px">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3fd0d4" stroke-width="1.4" stroke-linecap="square" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2.5" y="4" width="19" height="13" rx="1"></rect>
+          <path d="M8 21h8M12 17v4M6 8h6M6 11.5h9"></path>
+        </svg>
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <h3 style="font-size: 20px; font-weight: 600">Digital</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: #a3abb4">Get the change delivered, not just designed.</p>
+        </div>
+        <div style="height: 1px; background: rgba(255,255,255,0.07)"></div>
+        <div style="display: flex; flex-direction: column; gap: 9px">
+          <div style="font-size: 14px; line-height: 1.5; color: #b8c0c8">Target operating model and roadmap</div>
+          <div style="font-size: 14px; line-height: 1.5; color: #b8c0c8">Legacy replacement and cloud migration</div>
+          <div style="font-size: 14px; line-height: 1.5; color: #b8c0c8">Supplier selection and contract scrutiny</div>
+          <div style="font-size: 14px; line-height: 1.5; color: #b8c0c8">Delivery assurance on programmes in trouble</div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 18px; padding: 28px 24px; background: #14181e; border: 1px solid rgba(255,255,255,0.07); border-radius: 3px">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3fd0d4" stroke-width="1.4" stroke-linecap="square" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="12" cy="5.5" rx="7.5" ry="3"></ellipse>
+          <path d="M4.5 5.5v13c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-13"></path>
+          <path d="M4.5 12c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3"></path>
+        </svg>
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <h3 style="font-size: 20px; font-weight: 600">Data</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: #a3abb4">Numbers the business trusts enough to act on.</p>
+        </div>
+        <div style="height: 1px; background: rgba(255,255,255,0.07)"></div>
+        <div style="display: flex; flex-direction: column; gap: 9px">
+          <div style="font-size: 14px; line-height: 1.5; color: #b8c0c8">Data strategy, ownership and governance</div>
+          <div style="font-size: 14px; line-height: 1.5; color: #b8c0c8">Platform and warehouse architecture</div>
+          <div style="font-size: 14px; line-height: 1.5; color: #b8c0c8">Reporting that answers real questions</div>
+          <div style="font-size: 14px; line-height: 1.5; color: #b8c0c8">AI readiness — and where it is not worth it</div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 18px; padding: 28px 24px; background: #14181e; border: 1px solid rgba(255,255,255,0.07); border-radius: 3px">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3fd0d4" stroke-width="1.4" stroke-linecap="square" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2.5l8 3.5v6c0 4.6-3.4 8.4-8 9.5-4.6-1.1-8-4.9-8-9.5v-6l8-3.5z"></path>
+          <path d="M9 12l2 2 4-4"></path>
+        </svg>
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <h3 style="font-size: 20px; font-weight: 600">Cyber</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: #a3abb4">Know what would actually hurt, and fix that first.</p>
+        </div>
+        <div style="height: 1px; background: rgba(255,255,255,0.07)"></div>
+        <div style="display: flex; flex-direction: column; gap: 9px">
+          <div style="font-size: 14px; line-height: 1.5; color: #b8c0c8">Security posture and control reviews</div>
+          <div style="font-size: 14px; line-height: 1.5; color: #b8c0c8">Third-party and supply chain risk</div>
+          <div style="font-size: 14px; line-height: 1.5; color: #b8c0c8">Incident response planning and rehearsal</div>
+          <div style="font-size: 14px; line-height: 1.5; color: #b8c0c8">Compliance work that survives an audit</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="height: 1px; background: rgba(255,255,255,0.08)"></div>
+
+  <!-- PROOF -->
+  <div style="display: flex; flex-direction: column; gap: 24px; padding: 48px 24px">
+    <div style="width: 32px; height: 1px; background: {{accent}}"></div>
+    <p style="font-size: 21px; line-height: 1.45; font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.01em; color: #e8ecef">[TESTIMONIAL — one or two sentences from a client, in their own words, about what changed after the engagement.]</p>
+    <div style="display: flex; flex-direction: column; gap: 4px">
+      <div style="font-size: 14px; font-weight: 500">[CLIENT NAME]</div>
+      <div style="font-size: 14px; color: #8d959e">[ROLE], [COMPANY]</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="display: flex; flex-direction: column; gap: 24px; padding: 48px 24px; background: #14181e; border-top: 1px solid rgba(255,255,255,0.08)">
+    <h2 style="font-size: 26px; line-height: 1.2; font-weight: 600; letter-spacing: -0.02em">Tell us what is keeping you up.</h2>
+    <p style="font-size: 15px; line-height: 1.65; color: #a3abb4">Thirty minutes, no charge. If it is not something we should take on, we will say so and point you somewhere better.</p>
+    <div style="display: flex; align-items: center; justify-content: center; height: 52px; border-radius: 2px; background: {{accent}}; color: #06181a; font-size: 15px; font-weight: 600">Book a 30-minute call</div>
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <div style="font-size: 14px; color: #b8c0c8">[YOUR EMAIL]</div>
+      <div style="font-size: 14px; color: #b8c0c8">[YOUR PHONE]</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="display: flex; flex-direction: column; gap: 24px; padding: 36px 24px 44px 24px">
+    <div style="display: flex; flex-direction: column; gap: 3px">
+      <div style="font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700">Shab</div>
+      <div style="font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: #6f7780">Digital | Data | Cyber</div>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px">
+      <a href="#" style="font-size: 14px; color: #8d959e">Services</a>
+      <a href="#" style="font-size: 14px; color: #8d959e">How we work</a>
+      <a href="#" style="font-size: 14px; color: #8d959e">Sectors</a>
+      <a href="#" style="font-size: 14px; color: #8d959e">About</a>
+      <a href="#" style="font-size: 14px; color: #8d959e">Contact</a>
+    </div>
+    <div style="height: 1px; background: rgba(255,255,255,0.08)"></div>
+    <div style="font-size: 13px; line-height: 1.6; color: #6f7780">[REGISTERED ADDRESS]<br>Company no. [COMPANY NUMBER]</div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#3fd0d4","options":["#3fd0d4","#7dd44f","#d4a13f","#6f8dff"]},"$preview":{"width":390,"height":4240}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#3fd0d4' };
+  }
+}
+</script>
+</body>
+</html>

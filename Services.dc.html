@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500&display=swap">
+  <style>
+    body { margin: 0; background: #0d1015; font-family: "IBM Plex Sans", "Helvetica Neue", Helvetica, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #e8ecef; text-decoration: none; }
+    a:hover { color: #3fd0d4; }
+    p { margin: 0; text-wrap: pretty; }
+    h2, h3 { margin: 0; font-family: "Space Grotesk", "Helvetica Neue", Helvetica, sans-serif; text-wrap: balance; }
+  </style>
+</helmet>
+
+<div style="width: 1120px; background: #0d1015; color: #f2f4f6; display: flex; flex-direction: column; gap: 48px; padding: 72px 0px">
+
+  <div style="display: flex; flex-direction: column; gap: 16px">
+    <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: {{accent}}">Three practices — row variant</div>
+    <h2 style="font-size: 40px; line-height: 1.15; font-weight: 600; letter-spacing: -0.02em">Most problems sit between them. So do we.</h2>
+  </div>
+
+  <div style="display: flex; flex-direction: column">
+
+    <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px; padding-top: 36px; padding-bottom: 36px; border-top: 1px solid rgba(255,255,255,0.08)">
+      <div style="grid-column: span 4; display: flex; gap: 20px; align-items: flex-start">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3fd0d4" stroke-width="1.4" stroke-linecap="square" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2.5" y="4" width="19" height="13" rx="1"></rect>
+          <path d="M8 21h8M12 17v4M6 8h6M6 11.5h9"></path>
+        </svg>
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <h3 style="font-size: 26px; font-weight: 600; letter-spacing: -0.015em">Digital</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: #a3abb4">Get the change delivered, not just designed.</p>
+        </div>
+      </div>
+      <div style="grid-column: span 5; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+        <div style="font-size: 14px; line-height: 1.55; color: #b8c0c8">Target operating model and roadmap</div>
+        <div style="font-size: 14px; line-height: 1.55; color: #b8c0c8">Legacy replacement and cloud migration</div>
+        <div style="font-size: 14px; line-height: 1.55; color: #b8c0c8">Supplier selection and contract scrutiny</div>
+        <div style="font-size: 14px; line-height: 1.55; color: #b8c0c8">Delivery assurance on programmes in trouble</div>
+      </div>
+      <div style="grid-column: span 3; display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #6f7780">Best for</div>
+        <div style="font-size: 14px; line-height: 1.55; color: #8d959e">Leadership teams mid-programme who need an honest read before the next gate.</div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px; padding-top: 36px; padding-bottom: 36px; border-top: 1px solid rgba(255,255,255,0.08)">
+      <div style="grid-column: span 4; display: flex; gap: 20px; align-items: flex-start">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3fd0d4" stroke-width="1.4" stroke-linecap="square" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="12" cy="5.5" rx="7.5" ry="3"></ellipse>
+          <path d="M4.5 5.5v13c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-13"></path>
+          <path d="M4.5 12c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3"></path>
+        </svg>
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <h3 style="font-size: 26px; font-weight: 600; letter-spacing: -0.015em">Data</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: #a3abb4">Numbers the business trusts enough to act on.</p>
+        </div>
+      </div>
+      <div style="grid-column: span 5; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+        <div style="font-size: 14px; line-height: 1.55; color: #b8c0c8">Data strategy, ownership and governance</div>
+        <div style="font-size: 14px; line-height: 1.55; color: #b8c0c8">Platform and warehouse architecture</div>
+        <div style="font-size: 14px; line-height: 1.55; color: #b8c0c8">Reporting that answers real questions</div>
+        <div style="font-size: 14px; line-height: 1.55; color: #b8c0c8">AI readiness — and where it is not worth it</div>
+      </div>
+      <div style="grid-column: span 3; display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #6f7780">Best for</div>
+        <div style="font-size: 14px; line-height: 1.55; color: #8d959e">Organisations with plenty of dashboards and no shared version of the truth.</div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px; padding-top: 36px; padding-bottom: 36px; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08)">
+      <div style="grid-column: span 4; display: flex; gap: 20px; align-items: flex-start">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3fd0d4" stroke-width="1.4" stroke-linecap="square" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2.5l8 3.5v6c0 4.6-3.4 8.4-8 9.5-4.6-1.1-8-4.9-8-9.5v-6l8-3.5z"></path>
+          <path d="M9 12l2 2 4-4"></path>
+        </svg>
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <h3 style="font-size: 26px; font-weight: 600; letter-spacing: -0.015em">Cyber</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: #a3abb4">Know what would actually hurt, and fix that first.</p>
+        </div>
+      </div>
+      <div style="grid-column: span 5; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+        <div style="font-size: 14px; line-height: 1.55; color: #b8c0c8">Security posture and control reviews</div>
+        <div style="font-size: 14px; line-height: 1.55; color: #b8c0c8">Third-party and supply chain risk</div>
+        <div style="font-size: 14px; line-height: 1.55; color: #b8c0c8">Incident response planning and rehearsal</div>
+        <div style="font-size: 14px; line-height: 1.55; color: #b8c0c8">Compliance work that survives an audit</div>
+      </div>
+      <div style="grid-column: span 3; display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #6f7780">Best for</div>
+        <div style="font-size: 14px; line-height: 1.55; color: #8d959e">Teams facing a customer security review, an audit, or a board asking hard questions.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#3fd0d4","options":["#3fd0d4","#7dd44f","#d4a13f","#6f8dff"]},"$preview":{"width":1120,"height":800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#3fd0d4' };
+  }
+}
+</script>
+</body>
+</html>

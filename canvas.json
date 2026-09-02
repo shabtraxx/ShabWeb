@@ -1,0 +1,11 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 1440, "h": 4120, "title": "Landing page — desktop" },
+    { "file": "Mobile.dc.html", "x": 1560, "y": 0, "w": 390, "h": 4240, "title": "Landing page — mobile" },
+    { "file": "Services.dc.html", "x": 2080, "y": 0, "w": 1120, "h": 800, "title": "Services — row variant" }
+  ],
+  "annotations": [
+    { "id": "placeholders", "x": 2080, "y": 960, "w": 380, "text": "Everything in [SQUARE BRACKETS] is a placeholder — contact details, address, company number, client logos and the testimonial. Send me the real copy and I'll drop it in.\n\nThe Services artboard is an alternative row layout for the same three practices — a swap for the card row on the desktop page if you prefer it." }
+  ],
+  "launch": { "view": "focused", "file": "Main.dc.html" }
+}
