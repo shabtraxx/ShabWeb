@@ -1,0 +1,164 @@
+---
+import { NAV, bookingHref } from '../config';
+import Wordmark from './Wordmark.astro';
+---
+
+<header class="header">
+  <div class="container header__inner">
+    <a href="/" class="header__brand" aria-label="Shab — home">
+      <Wordmark />
+    </a>
+
+    <nav class="header__nav" aria-label="Primary">
+      <ul class="header__links">
+        {NAV.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
+      </ul>
+      <a class="button button--ghost" href={bookingHref()}>Book a call</a>
+    </nav>
+
+    <button
+      class="header__toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+      data-nav-toggle
+    >
+      <span class="visually-hidden">Menu</span>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true">
+        <path d="M3 7h18M3 12h18M3 17h18"></path>
+      </svg>
+    </button>
+  </div>
+
+  <nav class="header__mobile" id="mobile-nav" aria-label="Primary" hidden>
+    <div class="container header__mobile-inner">
+      <ul class="header__mobile-links">
+        {NAV.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
+      </ul>
+      <a class="button" href={bookingHref()}>Book a 30-minute call</a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('[data-nav-toggle]');
+  const panel = document.getElementById('mobile-nav');
+
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    panel!.hidden = open;
+  });
+
+  panel?.addEventListener('click', (event) => {
+    if ((event.target as HTMLElement).closest('a')) {
+      toggle?.setAttribute('aria-expanded', 'false');
+      panel.hidden = true;
+    }
+  });
+</script>
+
+<style>
+  .header {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-block: 1.25rem;
+  }
+
+  .header__brand:hover {
+    color: inherit;
+  }
+
+  .header__nav {
+    display: flex;
+    align-items: center;
+    gap: 2.25rem;
+  }
+
+  .header__links {
+    display: flex;
+    align-items: center;
+    gap: 2.25rem;
+  }
+
+  .header__links a {
+    font-size: var(--step-small);
+    color: var(--text-body);
+  }
+
+  .header__toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin-right: -0.625rem;
+    padding: 0;
+    background: none;
+    border: 0;
+    color: var(--text);
+    cursor: pointer;
+  }
+
+  .header__mobile {
+    border-top: 1px solid var(--rule);
+  }
+
+  .header__mobile-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding-block: 1.5rem 2rem;
+  }
+
+  .header__mobile-links {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header__mobile-links a {
+    display: block;
+    padding-block: 0.75rem;
+    font-size: 1.0625rem;
+    color: var(--text-body);
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 860px) {
+    .header__inner {
+      padding-block: 1rem;
+    }
+
+    .header__nav {
+      display: none;
+    }
+
+    .header__toggle {
+      display: flex;
+    }
+  }
+
+  @media (min-width: 861px) {
+    .header__mobile {
+      display: none;
+    }
+  }
+</style>

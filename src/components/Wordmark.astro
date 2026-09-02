@@ -1,0 +1,46 @@
+---
+import { COMPANY } from '../config';
+
+interface Props {
+  size?: 'lg' | 'sm';
+}
+
+const { size = 'lg' } = Astro.props;
+---
+
+<div class:list={['wordmark', size === 'sm' && 'wordmark--sm']}>
+  <span class="wordmark__name">{COMPANY.name}</span>
+  <span class="wordmark__strapline">{COMPANY.strapline}</span>
+</div>
+
+<style>
+  .wordmark {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .wordmark__name {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    color: var(--text);
+  }
+
+  .wordmark__strapline {
+    font-size: 0.625rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .wordmark--sm .wordmark__name {
+    font-size: 1.25rem;
+  }
+
+  .wordmark--sm .wordmark__strapline {
+    color: var(--text-faint);
+  }
+</style>

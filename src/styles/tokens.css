@@ -1,0 +1,46 @@
+/* Design tokens lifted verbatim from the Shab design canvas artboards. */
+:root {
+  color-scheme: dark;
+
+  /* Surfaces */
+  --ground: #0d1015;
+  --panel: #14181e;
+  --rule: rgba(255, 255, 255, 0.08);
+  --rule-soft: rgba(255, 255, 255, 0.07);
+  --rule-dashed: rgba(255, 255, 255, 0.14);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  /* Text ramp */
+  --text-bright: #f7f9fa;
+  --text: #f2f4f6;
+  --text-quiet: #e8ecef;
+  --text-body: #b8c0c8;
+  --text-muted: #a3abb4;
+  --text-dim: #8d959e;
+  --text-faint: #6f7780;
+
+  /* Accent */
+  --accent: #3fd0d4;
+  --accent-ink: #06181a;
+
+  /* Type */
+  --font-display: 'Space Grotesk', 'Helvetica Neue', Helvetica, sans-serif;
+  --font-body: 'IBM Plex Sans', 'Helvetica Neue', Helvetica, sans-serif;
+
+  --step-hero: clamp(2.25rem, 1.35rem + 3.9vw, 3.875rem);   /* 36 → 62px */
+  --step-h2: clamp(1.75rem, 1.32rem + 1.85vw, 2.5rem);      /* 28 → 40px */
+  --step-h3: clamp(1.25rem, 1.18rem + 0.31vw, 1.375rem);    /* 20 → 22px */
+  --step-quote: clamp(1.3125rem, 0.81rem + 2.16vw, 1.875rem); /* 21 → 30px */
+  --step-lead: clamp(1rem, 0.93rem + 0.31vw, 1.125rem);     /* 16 → 18px */
+  --step-body: 0.9375rem;                                    /* 15px */
+  --step-small: 0.875rem;                                    /* 14px */
+  --step-fine: 0.8125rem;                                    /* 13px */
+  --step-label: 0.6875rem;                                   /* 11px */
+
+  /* Rhythm */
+  --container: 1120px;
+  --gutter: clamp(1.5rem, 0.9rem + 2.6vw, 2.5rem);
+  --section-y: clamp(3.5rem, 2.2rem + 5.6vw, 7rem);          /* 56 → 112px */
+  --radius: 3px;
+  --radius-sharp: 2px;
+}

@@ -1,0 +1,98 @@
+---
+import { COMPANY, NAV, isSet } from '../config';
+import Wordmark from './Wordmark.astro';
+
+const links = NAV;
+---
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__top">
+      <Wordmark size="sm" />
+      <nav aria-label="Footer">
+        <ul class="footer__links">
+          {links.map((item) => (
+            <li><a href={item.href}>{item.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+
+    <hr class="rule" />
+
+    <div class="footer__bottom">
+      <p class="footer__legal">
+        <span class:list={[!isSet(COMPANY.address) && 'placeholder']}>{COMPANY.address}</span>
+        <span aria-hidden="true"> · </span>
+        Company no.
+        <span class:list={[!isSet(COMPANY.number) && 'placeholder']}>{COMPANY.number}</span>
+      </p>
+      <ul class="footer__legal-links">
+        <li><a href="/privacy">Privacy</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    padding-block: 3.5rem;
+  }
+
+  .footer__top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+
+  .footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .footer__links a,
+  .footer__legal-links a {
+    font-size: var(--step-small);
+    color: var(--text-dim);
+  }
+
+  .footer__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .footer__legal {
+    font-size: var(--step-fine);
+    color: var(--text-faint);
+  }
+
+  .footer__legal-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer__legal-links a {
+    font-size: var(--step-fine);
+    color: var(--text-faint);
+  }
+
+  @media (max-width: 720px) {
+    .footer__top,
+    .footer__bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .footer__links {
+      gap: 1.25rem 1.5rem;
+    }
+  }
+</style>

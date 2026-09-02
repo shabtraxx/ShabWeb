@@ -1,0 +1,75 @@
+---
+import Base from '../layouts/Base.astro';
+import { COMPANY, CONTACT, isSet } from '../config';
+---
+
+<Base title="Privacy — Shab" description="How Shab handles personal data.">
+  <article class="section container prose">
+    <h1>Privacy</h1>
+    <p class="prose__note">
+      This page is a starting point, not legal advice. Have it reviewed before you launch, and
+      replace every bracketed value below.
+    </p>
+
+    <h2>Who we are</h2>
+    <p>
+      {COMPANY.name}, company number
+      <span class:list={[!isSet(COMPANY.number) && 'placeholder']}>{COMPANY.number}</span>,
+      registered at
+      <span class:list={[!isSet(COMPANY.address) && 'placeholder']}>{COMPANY.address}</span>.
+    </p>
+
+    <h2>What this site collects</h2>
+    <p>
+      This site sets no cookies and runs no third-party trackers. Fonts are served from this domain,
+      not from a third party. If analytics are enabled they are privacy-preserving and aggregate
+      only — no individual visitor is identified.
+    </p>
+
+    <h2>Booking a call</h2>
+    <p>
+      The booking button opens a scheduling page hosted by a third party. Anything you enter there
+      is handled under that provider's privacy policy as well as ours.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      Questions about your data:
+      <span class:list={[!isSet(CONTACT.email) && 'placeholder']}>{CONTACT.email}</span>.
+      You have the right to ask what we hold about you and to have it corrected or erased.
+    </p>
+  </article>
+</Base>
+
+<style>
+  .prose {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 68ch;
+  }
+
+  .prose h1 {
+    font-size: var(--step-h2);
+    letter-spacing: -0.02em;
+  }
+
+  .prose h2 {
+    margin-top: 1.5rem;
+    font-size: 1.25rem;
+  }
+
+  .prose p {
+    font-size: var(--step-body);
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  .prose__note {
+    padding: 1rem 1.25rem;
+    background: var(--panel);
+    border: 1px solid var(--rule-soft);
+    border-radius: var(--radius);
+    color: var(--text-dim);
+  }
+</style>
