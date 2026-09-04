@@ -21,9 +21,9 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          # Astro 7 requires >=22.12. Cloudflare Pages needs the same value
-          # set as a NODE_VERSION environment variable on the project.
-          node-version: '22.12.0'
+          # .nvmrc is the single source for the Node version: CI reads it here,
+          # and Cloudflare Pages reads the same file when it builds.
+          node-version-file: .nvmrc
           cache: npm
 
       - name: Install dependencies
