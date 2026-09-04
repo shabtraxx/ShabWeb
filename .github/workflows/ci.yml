@@ -22,7 +22,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           # .nvmrc is the single source for the Node version: CI reads it here,
-          # and Cloudflare Pages reads the same file when it builds.
+          # and Cloudflare Pages reads the same file when it builds. Kept at or
+          # above what the dependency tree asks for — astro pulls in undici,
+          # which requires >=22.19.0 and warns on anything older.
           node-version-file: .nvmrc
           cache: npm
 
