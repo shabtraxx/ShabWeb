@@ -40,6 +40,10 @@ rather than a dead link.
 4. Deploy. Every push to the production branch ships; pull requests get preview URLs.
 5. Add the custom domain under the project's **Custom domains** tab. HTTPS is automatic.
 
+The Node version comes from `.nvmrc` — Cloudflare Pages reads it, and so does CI, so
+there is one place to change it. Setting `NODE_VERSION` in the Pages dashboard as well
+does no harm and acts as a belt-and-braces fallback.
+
 Optional, free, no cookie banner: enable **Cloudflare Web Analytics** for the domain
 and paste its snippet into `src/layouts/Base.astro`.
 
