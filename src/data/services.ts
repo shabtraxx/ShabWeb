@@ -51,3 +51,11 @@ export const PROCESS = [
     body: 'We do the work alongside your team, then leave them the documentation, the decisions and the reasoning behind both.',
   },
 ] as const;
+
+/** Sectors we have delivered in. Plain names, no client marks — see README. */
+export const SECTORS = [
+  { name: 'Government', icon: 'government' },
+  { name: 'Construction', icon: 'construction' },
+  { name: 'Manufacturing', icon: 'manufacturing' },
+  { name: 'Real estate', icon: 'realestate' },
+] as const;

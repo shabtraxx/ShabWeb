@@ -1,0 +1,56 @@
+---
+/**
+ * Sector icons. Same 24px drawing grid, square caps and no fill as the
+ * service icons. Rendered at 32px, so the declared stroke is 1.2 rather
+ * than 1.4 — that lands at the same optical weight as the 28px service
+ * icons once the viewBox scales it up.
+ */
+interface Props {
+  icon: 'government' | 'construction' | 'manufacturing' | 'realestate';
+}
+
+const { icon } = Astro.props;
+---
+
+<svg
+  width="32"
+  height="32"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.2"
+  stroke-linecap="square"
+  aria-hidden="true"
+>
+  {icon === 'government' && (
+    <g>
+      <path d="M3.5 21h17"></path>
+      <path d="M4.5 8.5L12 3.5l7.5 5"></path>
+      <path d="M4.5 8.5h15"></path>
+      <path d="M7.5 8.5v9M12 8.5v9M16.5 8.5v9"></path>
+    </g>
+  )}
+  {icon === 'construction' && (
+    <g>
+      <path d="M2.5 19.5h19"></path>
+      <path d="M5 19.5v-3a7 7 0 0114 0v3"></path>
+      <path d="M9.5 10.2v6.3M14.5 10.2v6.3"></path>
+      <path d="M12 9.5V7"></path>
+    </g>
+  )}
+  {icon === 'manufacturing' && (
+    <g>
+      <path d="M2.5 20.5h19"></path>
+      <path d="M3.5 20.5V9.5l5 3.5v-3.5l5 3.5v-3.5l5 3.5v11"></path>
+      <path d="M15.5 12V4.5h3V14"></path>
+    </g>
+  )}
+  {icon === 'realestate' && (
+    <g>
+      <path d="M3 10l9-6.5 9 6.5"></path>
+      <path d="M5.5 8.5V21M18.5 8.5V21"></path>
+      <path d="M3.5 21h17"></path>
+      <path d="M9.5 21v-6h5v6"></path>
+    </g>
+  )}
+</svg>

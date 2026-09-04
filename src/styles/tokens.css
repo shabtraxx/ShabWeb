@@ -30,7 +30,6 @@
   --step-hero: clamp(2.25rem, 1.35rem + 3.9vw, 3.875rem);   /* 36 → 62px */
   --step-h2: clamp(1.75rem, 1.32rem + 1.85vw, 2.5rem);      /* 28 → 40px */
   --step-h3: clamp(1.25rem, 1.18rem + 0.31vw, 1.375rem);    /* 20 → 22px */
-  --step-quote: clamp(1.3125rem, 0.81rem + 2.16vw, 1.875rem); /* 21 → 30px */
   --step-lead: clamp(1rem, 0.93rem + 0.31vw, 1.125rem);     /* 16 → 18px */
   --step-body: 0.9375rem;                                    /* 15px */
   --step-small: 0.875rem;                                    /* 14px */

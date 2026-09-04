@@ -16,14 +16,14 @@ export const BOOKING_URL = '[YOUR CAL.COM LINK]';
 
 export const CONTACT = {
   email: 'hello@shab.com.au',
-  phone: '[YOUR PHONE]',
 } as const;
 
 export const COMPANY = {
   name: 'Shab',
   strapline: 'Digital | Data | Cyber',
-  address: '[REGISTERED ADDRESS]',
-  number: '[COMPANY NUMBER]',
+  address: '[BUSINESS ADDRESS]',
+  /** Australian Business Number — 11 digits, shown in the footer and on the privacy page. */
+  abn: '[ABN]',
 } as const;
 
 export const NAV = [

@@ -7,36 +7,45 @@ import { COMPANY, CONTACT, isSet } from '../config';
   <article class="section container prose">
     <h1>Privacy</h1>
     <p class="prose__note">
-      This page is a starting point, not legal advice. Have it reviewed before you launch, and
-      replace every bracketed value below.
+      A starting point, not legal advice. Have it reviewed before you rely on it, and replace
+      every bracketed value below.
     </p>
 
     <h2>Who we are</h2>
     <p>
-      {COMPANY.name}, company number
-      <span class:list={[!isSet(COMPANY.number) && 'placeholder']}>{COMPANY.number}</span>,
-      registered at
+      {COMPANY.name}, ABN
+      <span class:list={[!isSet(COMPANY.abn) && 'placeholder']}>{COMPANY.abn}</span>,
       <span class:list={[!isSet(COMPANY.address) && 'placeholder']}>{COMPANY.address}</span>.
+      We handle personal information under the Privacy Act 1988 (Cth) and the Australian
+      Privacy Principles.
     </p>
 
     <h2>What this site collects</h2>
     <p>
-      This site sets no cookies and runs no third-party trackers. Fonts are served from this domain,
-      not from a third party. If analytics are enabled they are privacy-preserving and aggregate
-      only — no individual visitor is identified.
+      This site sets no cookies and runs no third-party trackers. Fonts are served from this
+      domain rather than a third party, so visiting a page sends nothing to anyone else. If
+      analytics are enabled they are aggregate only and identify no individual visitor.
     </p>
 
     <h2>Booking a call</h2>
     <p>
-      The booking button opens a scheduling page hosted by a third party. Anything you enter there
-      is handled under that provider's privacy policy as well as ours.
+      The booking button opens a scheduling page hosted by a third party. Anything you enter
+      there is handled under that provider's privacy policy as well as ours.
     </p>
 
-    <h2>Contact</h2>
+    <h2>When you contact us</h2>
     <p>
-      Questions about your data:
+      If you email us we keep the message and your contact details so we can respond and, where
+      relevant, carry out work for you. We do not sell personal information or disclose it
+      overseas except through the service providers described above.
+    </p>
+
+    <h2>Access, correction and complaints</h2>
+    <p>
+      You may ask what personal information we hold about you and ask us to correct it. Write to
       <span class:list={[!isSet(CONTACT.email) && 'placeholder']}>{CONTACT.email}</span>.
-      You have the right to ask what we hold about you and to have it corrected or erased.
+      If you are not satisfied with how we handle a privacy matter you can refer it to the
+      Office of the Australian Information Commissioner at oaic.gov.au.
     </p>
   </article>
 </Base>
