@@ -43,6 +43,44 @@ rather than a dead link.
 Optional, free, no cookie banner: enable **Cloudflare Web Analytics** for the domain
 and paste its snippet into `src/layouts/Base.astro`.
 
+## Working on it
+
+Trunk-based: `main` is always deployable, and every change arrives by pull
+request from a short-lived feature branch.
+
+```bash
+git checkout main && git pull
+git checkout -b feat/whatever
+# ...work...
+npm run check && npm run build && npm test
+git push -u origin feat/whatever   # open a PR; CI runs; merge; delete the branch
+```
+
+CI (`.github/workflows/ci.yml`) runs on every pull request and on pushes to
+`main`: typecheck, build, then the Playwright suite on desktop and mobile
+viewports. Make these checks required in GitHub before merging — see the
+repository settings note below.
+
+### Tests
+
+`tests/landing.spec.ts` covers the things that silently break a marketing page:
+
+- one `<h1>`, a real title and a description long enough to be useful
+- the three practices render
+- every in-page anchor resolves to a section that exists
+- no unfilled `[PLACEHOLDER]` leaks into a link target
+- nothing loads from a third-party host (fonts stay self-hosted)
+- no sideways scroll at either viewport
+- the mobile nav opens, reports `aria-expanded`, closes on selection, and its
+  hit target is at least 44px
+- the first tab stop is the skip link, and the hidden mobile panel stays out of
+  the tab order
+
+Tests run against the built output, served by `scripts/serve-dist.mjs` — a
+dependency-free foreground static server. (`astro preview` self-daemonizes,
+which Playwright's `webServer` reads as a crash.) A sandbox with a preinstalled
+browser can point at it with `CHROMIUM_PATH`; CI installs its own.
+
 ## Design of record
 
 `Main.dc.html`, `Mobile.dc.html`, `Services.dc.html` and `canvas.json` are the design
