@@ -30,14 +30,38 @@ const description =
 
       <div class="hero__mark" aria-hidden="true">
         <svg viewBox="0 0 380 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Static frame: the grid and outer hexagon never change, so the
+               composition holds still while the inner mark cycles. -->
           <rect x="0.5" y="0.5" width="379" height="379" stroke="rgba(255,255,255,0.07)"></rect>
           <path d="M0 95H380M0 190H380M0 285H380M95 0V380M190 0V380M285 0V380" stroke="rgba(255,255,255,0.045)"></path>
           <path d="M190 46L306 96V196C306 262 254 316 190 336C126 316 74 262 74 196V96L190 46Z" stroke="rgba(255,255,255,0.18)" stroke-width="1.25"></path>
-          <path class="hero__shield" d="M190 96L258 125V193C258 234 228 267 190 281C152 267 122 234 122 193V125L190 96Z" stroke="#3fd0d4" stroke-width="1.5"></path>
-          <path class="hero__tick" d="M158 190L182 214L226 166" stroke="#3fd0d4" stroke-width="2" stroke-linecap="square"></path>
           <circle cx="190" cy="46" r="3.5" fill="#3fd0d4"></circle>
           <circle cx="306" cy="96" r="3.5" fill="rgba(255,255,255,0.35)"></circle>
           <circle cx="74" cy="96" r="3.5" fill="rgba(255,255,255,0.35)"></circle>
+
+          <!-- Digital: layered planes. -->
+          <g class="mark mark--digital" stroke="#3fd0d4" stroke-width="1.6">
+            <path d="M190 104L258 130L190 156L122 130Z"></path>
+            <path d="M190 164L258 190L190 216L122 190Z"></path>
+            <path d="M190 224L258 250L190 276L122 250Z"></path>
+          </g>
+
+          <!-- Data: concentric rings with nodes on the middle orbit. -->
+          <g class="mark mark--data" stroke="#3fd0d4" stroke-width="1.6">
+            <circle cx="190" cy="190" r="26"></circle>
+            <circle cx="190" cy="190" r="48"></circle>
+            <circle cx="190" cy="190" r="70"></circle>
+            <circle cx="190" cy="142" r="5" fill="#3fd0d4" stroke="none"></circle>
+            <circle cx="238" cy="190" r="5" fill="#3fd0d4" stroke="none"></circle>
+            <circle cx="190" cy="238" r="5" fill="#3fd0d4" stroke="none"></circle>
+            <circle cx="142" cy="190" r="5" fill="#3fd0d4" stroke="none"></circle>
+          </g>
+
+          <!-- Cyber: the shield. -->
+          <g class="mark mark--cyber" stroke="#3fd0d4" stroke-width="1.6">
+            <path d="M190 96L258 125V193C258 234 228 267 190 281C152 267 122 234 122 193V125L190 96Z"></path>
+            <path d="M158 190L182 214L226 166" stroke-width="2.2" stroke-linecap="square"></path>
+          </g>
         </svg>
       </div>
     </div>
@@ -200,32 +224,48 @@ const description =
     line-height: 0;
   }
 
-  .hero__shield,
-  .hero__tick {
-    animation: draw 900ms ease-out both;
-    stroke-dasharray: 700;
-    stroke-dashoffset: 0;
+  /*
+   * The three practices share one mark. Each holds for about three seconds
+   * and cross-fades into the next, so the hero says Digital, Data and Cyber
+   * rather than saying Cyber three times. The frame stays put — only the
+   * inner form changes, so nothing jumps.
+   */
+  .mark {
+    opacity: 0;
+    animation: mark-cycle 10.5s linear infinite;
   }
 
-  .hero__tick {
-    animation-delay: 320ms;
+  .mark--data {
+    animation-delay: -3.5s;
   }
 
-  @keyframes draw {
-    from {
-      stroke-dashoffset: 700;
+  .mark--cyber {
+    animation-delay: -7s;
+  }
+
+  @keyframes mark-cycle {
+    0%,
+    28% {
+      opacity: 1;
+    }
+    33%,
+    95% {
       opacity: 0;
     }
-    to {
-      stroke-dashoffset: 0;
+    100% {
       opacity: 1;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .hero__shield,
-    .hero__tick {
+    .mark {
       animation: none;
+      opacity: 0;
+    }
+
+    /* Hold the established mark rather than cycling. */
+    .mark--cyber {
+      opacity: 1;
     }
   }
 
