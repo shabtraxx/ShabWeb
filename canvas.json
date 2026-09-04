@@ -1,11 +1,56 @@
 {
   "artboards": [
-    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 1440, "h": 4120, "title": "Landing page — desktop" },
-    { "file": "Mobile.dc.html", "x": 1560, "y": 0, "w": 390, "h": 4240, "title": "Landing page — mobile" },
-    { "file": "Services.dc.html", "x": 2080, "y": 0, "w": 1120, "h": 800, "title": "Services — row variant" }
+    {
+      "file": "Main.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 4120,
+      "title": "Landing page \u2014 desktop"
+    },
+    {
+      "file": "Mobile.dc.html",
+      "x": 1560,
+      "y": 0,
+      "w": 390,
+      "h": 4240,
+      "title": "Landing page \u2014 mobile"
+    },
+    {
+      "file": "Services.dc.html",
+      "x": 2080,
+      "y": 0,
+      "w": 1120,
+      "h": 800,
+      "title": "Services \u2014 row variant"
+    },
+    {
+      "file": "OgCard.dc.html",
+      "x": 0,
+      "y": 4300,
+      "w": 1200,
+      "h": 630,
+      "title": "Open Graph card \u2014 1200\u00d7630"
+    }
   ],
   "annotations": [
-    { "id": "placeholders", "x": 2080, "y": 960, "w": 380, "text": "Everything in [SQUARE BRACKETS] is a placeholder — contact details, address, company number, client logos and the testimonial. Send me the real copy and I'll drop it in.\n\nThe Services artboard is an alternative row layout for the same three practices — a swap for the card row on the desktop page if you prefer it." }
+    {
+      "id": "placeholders",
+      "x": 2080,
+      "y": 960,
+      "w": 400,
+      "text": "Heads up: the landing page artboards below predate several shipped changes.\n\nThe live site now has a sector strip (Government, Construction, Manufacturing, Real estate) instead of client logo slots, no testimonial section, no phone line, and an ABN in the footer. Contact details and the booking link are all real.\n\nThe built site is authoritative, not these artboards. Ask me to sync them if you want to keep designing from here."
+    },
+    {
+      "id": "og-card",
+      "x": 1320,
+      "y": 4300,
+      "w": 380,
+      "text": "The social share card, exactly 1200x630. The site serves this as public/og.png, rendered from the same design by `npm run og` \u2014 so if you edit this artboard, re-run that script to regenerate the file the site actually uses."
+    }
   ],
-  "launch": { "view": "focused", "file": "Main.dc.html" }
+  "launch": {
+    "view": "focused",
+    "file": "Main.dc.html"
+  }
 }
