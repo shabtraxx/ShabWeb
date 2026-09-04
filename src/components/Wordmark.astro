@@ -14,15 +14,31 @@ const { size = 'lg' } = Astro.props;
 </div>
 
 <style>
+  /*
+   * A lockup, not two independent bits of type: the container sets the scale
+   * and both children size from it in em, so the strapline stays flush with
+   * the wordmark at any scale.
+   *
+   * Measured: 'Shab' is 2.4x its own font-size in ink width, and the strapline
+   * at 0.205em with 0.06em tracking lands within ~2px of it. The negative
+   * right margin removes the trailing letter-space, which would otherwise push
+   * the strapline visibly wider than the wordmark.
+   */
   .wordmark {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    align-items: flex-start;
+    gap: 0.09em;
+    font-size: 44px;
+  }
+
+  .wordmark--sm {
+    font-size: 40px;
   }
 
   .wordmark__name {
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: 1em;
     font-weight: 700;
     letter-spacing: -0.01em;
     line-height: 1;
@@ -30,14 +46,12 @@ const { size = 'lg' } = Astro.props;
   }
 
   .wordmark__strapline {
-    font-size: 0.625rem;
-    letter-spacing: 0.18em;
+    font-size: 0.205em;
+    letter-spacing: 0.06em;
+    margin-right: -0.06em;
     text-transform: uppercase;
+    line-height: 1.2;
     color: var(--text-dim);
-  }
-
-  .wordmark--sm .wordmark__name {
-    font-size: 1.25rem;
   }
 
   .wordmark--sm .wordmark__strapline {
