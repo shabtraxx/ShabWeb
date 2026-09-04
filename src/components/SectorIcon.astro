@@ -1,7 +1,9 @@
 ---
 /**
- * Sector icons. Same drawing rules as the service icons: 24px grid,
- * 1.4 stroke, square caps, no fill — so they sit together as one set.
+ * Sector icons. Same 24px drawing grid, square caps and no fill as the
+ * service icons. Rendered at 32px, so the declared stroke is 1.2 rather
+ * than 1.4 — that lands at the same optical weight as the 28px service
+ * icons once the viewBox scales it up.
  */
 interface Props {
   icon: 'government' | 'construction' | 'manufacturing' | 'realestate';
@@ -11,12 +13,12 @@ const { icon } = Astro.props;
 ---
 
 <svg
-  width="24"
-  height="24"
+  width="32"
+  height="32"
   viewBox="0 0 24 24"
   fill="none"
   stroke="currentColor"
-  stroke-width="1.4"
+  stroke-width="1.2"
   stroke-linecap="square"
   aria-hidden="true"
 >
