@@ -86,6 +86,36 @@ test.describe('footer business details', () => {
   });
 });
 
+test.describe('privacy page', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/privacy');
+  });
+
+  test('states who we are and names the host', async ({ page }) => {
+    await expect(page.getByRole('heading', { level: 1, name: 'Privacy' })).toBeVisible();
+
+    const body = page.locator('.prose');
+    await expect(body).toContainText('ABN 45 074 849 006');
+    await expect(body).toContainText('Privacy Act 1988 (Cth)');
+    await expect(body, 'the host receives visitor data and must be named').toContainText(
+      'Cloudflare',
+    );
+    await expect(body, 'overseas disclosure must be stated').toContainText('outside Australia');
+  });
+
+  test('carries a last-updated date', async ({ page }) => {
+    await expect(page.locator('.prose__updated')).toContainText(/Last updated \d{1,2} \w+ \d{4}\./);
+  });
+
+  test('does not tell readers it is unreviewed, and has no placeholders', async ({ page }) => {
+    const body = page.locator('.prose');
+    await expect(body, 'the owner-facing caveat belongs in the source').not.toContainText(
+      'not legal advice',
+    );
+    await expect(body).not.toContainText('[');
+  });
+});
+
 test.describe('mobile navigation', () => {
   test.skip(({ isMobile }) => !isMobile, 'only present at narrow widths');
 

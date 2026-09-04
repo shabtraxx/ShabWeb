@@ -26,6 +26,12 @@ export const COMPANY = {
   abn: '45 074 849 006',
 } as const;
 
+/**
+ * Date the privacy policy last changed, ISO format. Bump it whenever the
+ * policy text changes — readers and procurement reviewers look for it.
+ */
+export const PRIVACY_UPDATED = '2026-09-04';
+
 export const NAV = [
   { label: 'Services', href: '#services' },
   { label: 'How we work', href: '#how-we-work' },
