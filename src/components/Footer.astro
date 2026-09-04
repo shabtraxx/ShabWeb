@@ -24,8 +24,7 @@ const links = NAV;
       <p class="footer__legal">
         <span class:list={[!isSet(COMPANY.address) && 'placeholder']}>{COMPANY.address}</span>
         <span aria-hidden="true"> · </span>
-        ABN
-        <span class:list={[!isSet(COMPANY.abn) && 'placeholder']}>{COMPANY.abn}</span>
+        <span class:list={[!isSet(COMPANY.abn) && 'placeholder']}>ABN {COMPANY.abn}</span>
       </p>
       <ul class="footer__legal-links">
         <li><a href="/privacy">Privacy</a></li>

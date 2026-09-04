@@ -13,8 +13,7 @@ import { COMPANY, CONTACT, isSet } from '../config';
 
     <h2>Who we are</h2>
     <p>
-      {COMPANY.name}, ABN
-      <span class:list={[!isSet(COMPANY.abn) && 'placeholder']}>{COMPANY.abn}</span>,
+      {COMPANY.name}, <span class:list={[!isSet(COMPANY.abn) && 'placeholder']}>ABN {COMPANY.abn}</span>,
       <span class:list={[!isSet(COMPANY.address) && 'placeholder']}>{COMPANY.address}</span>.
       We handle personal information under the Privacy Act 1988 (Cth) and the Australian
       Privacy Principles.
