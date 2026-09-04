@@ -1,7 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import ServiceCard from '../components/ServiceCard.astro';
-import { SERVICES, PROCESS } from '../data/services';
+import SectorIcon from '../components/SectorIcon.astro';
+import { SERVICES, PROCESS, SECTORS } from '../data/services';
 import { CONTACT, bookingHref, isSet } from '../config';
 
 const title = 'Shab — Digital, Data and Cyber consulting';
@@ -44,13 +45,16 @@ const description =
 
   <hr class="rule" />
 
-  <!-- Trust ------------------------------------------------------------ -->
-  <section class="trust" aria-label="Clients">
+  <!-- Sectors ---------------------------------------------------------- -->
+  <section class="trust" aria-label="Sectors">
     <div class="container trust__inner">
-      <p class="eyebrow eyebrow--plain">Trusted by teams at</p>
-      <ul class="trust__logos">
-        {Array.from({ length: 5 }).map(() => (
-          <li class="trust__slot">[CLIENT LOGO]</li>
+      <p class="eyebrow eyebrow--plain">Delivered across</p>
+      <ul class="trust__sectors">
+        {SECTORS.map((sector) => (
+          <li class="trust__sector">
+            <span class="trust__icon"><SectorIcon icon={sector.icon} /></span>
+            <span>{sector.name}</span>
+          </li>
         ))}
       </ul>
     </div>
@@ -227,21 +231,28 @@ const description =
     padding-block: 2.75rem;
   }
 
-  .trust__logos {
+  .trust__sectors {
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1.5rem;
   }
 
-  .trust__slot {
+  .trust__sector {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 48px;
-    border: 1px dashed var(--rule-dashed);
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-    color: var(--text-faint);
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-top: 1.125rem;
+    border-top: 1px solid var(--rule);
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--text-body);
+  }
+
+  .trust__icon {
+    color: var(--accent);
+    line-height: 0;
   }
 
   /* Services ------------------------------------------------------------ */
@@ -430,8 +441,8 @@ const description =
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .trust__logos {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+    .trust__sectors {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .cta__inner {
@@ -446,7 +457,7 @@ const description =
       grid-template-columns: minmax(0, 1fr);
     }
 
-    .trust__logos {
+    .trust__sectors {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
