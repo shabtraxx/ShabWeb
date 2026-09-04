@@ -65,18 +65,32 @@ const html = `<!doctype html>
     flex: 1;
   }
 
+  /* Same lockup ratios as src/components/Wordmark.astro: the scale sets the
+     size and both children size from it in em, so the strapline sits flush
+     under the wordmark here exactly as it does in the header. */
+  .lockup {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.09em;
+    font-size: 72px;
+  }
+
   .wordmark {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 40px;
+    font-size: 1em;
     font-weight: 700;
     letter-spacing: -0.01em;
     line-height: 1;
   }
 
   .strapline {
-    margin-top: 10px;
-    font-size: 15px;
-    letter-spacing: 0.22em;
+    font-size: 0.205em;
+    letter-spacing: 0.06em;
+    /* Drops the trailing letter-space, which would otherwise push the
+       strapline visibly wider than the wordmark. */
+    margin-right: -0.06em;
+    line-height: 1.2;
     text-transform: uppercase;
     color: #8d959e;
   }
@@ -111,9 +125,9 @@ const html = `<!doctype html>
   }
 </style>
 <div class="copy">
-  <div>
+  <div class="lockup">
     <div class="wordmark">Shab</div>
-    <div class="strapline">Digital &nbsp;|&nbsp; Data &nbsp;|&nbsp; Cyber</div>
+    <div class="strapline">Digital | Data | Cyber</div>
   </div>
 
   <h1>Decisions your board can stand behind.</h1>
