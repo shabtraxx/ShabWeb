@@ -21,9 +21,9 @@ export const CONTACT = {
 export const COMPANY = {
   name: 'Shab',
   strapline: 'Digital | Data | Cyber',
-  address: '[BUSINESS ADDRESS]',
+  address: 'Adelaide, South Australia',
   /** Australian Business Number — 11 digits, shown in the footer and on the privacy page. */
-  abn: '[ABN]',
+  abn: '45 074 849 006',
 } as const;
 
 export const NAV = [

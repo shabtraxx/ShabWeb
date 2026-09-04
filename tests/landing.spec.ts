@@ -75,6 +75,17 @@ test.describe('landing page', () => {
   });
 });
 
+test.describe('footer business details', () => {
+  test('shows the ABN and locality, not placeholders', async ({ page }) => {
+    await page.goto('/');
+
+    const legal = page.locator('.footer__legal');
+    await expect(legal).toContainText('Adelaide, South Australia');
+    await expect(legal).toContainText('ABN 45 074 849 006');
+    await expect(legal, 'no bracketed placeholder should survive').not.toContainText('[');
+  });
+});
+
 test.describe('mobile navigation', () => {
   test.skip(({ isMobile }) => !isMobile, 'only present at narrow widths');
 
