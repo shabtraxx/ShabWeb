@@ -1,11 +1,41 @@
 {
   "artboards": [
-    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 1440, "h": 4120, "title": "Landing page — desktop" },
-    { "file": "Mobile.dc.html", "x": 1560, "y": 0, "w": 390, "h": 4240, "title": "Landing page — mobile" },
-    { "file": "Services.dc.html", "x": 2080, "y": 0, "w": 1120, "h": 800, "title": "Services — row variant" }
+    {
+      "file": "Main.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 3800,
+      "title": "Landing page \u2014 desktop"
+    },
+    {
+      "file": "Mobile.dc.html",
+      "x": 1560,
+      "y": 0,
+      "w": 390,
+      "h": 3900,
+      "title": "Landing page \u2014 mobile"
+    },
+    {
+      "file": "Services.dc.html",
+      "x": 2080,
+      "y": 0,
+      "w": 1120,
+      "h": 800,
+      "title": "Services \u2014 row variant"
+    }
   ],
   "annotations": [
-    { "id": "placeholders", "x": 2080, "y": 960, "w": 380, "text": "Everything in [SQUARE BRACKETS] is a placeholder — contact details, address, company number, client logos and the testimonial. Send me the real copy and I'll drop it in.\n\nThe Services artboard is an alternative row layout for the same three practices — a swap for the card row on the desktop page if you prefer it." }
+    {
+      "id": "placeholders",
+      "x": 2080,
+      "y": 960,
+      "w": 380,
+      "text": "These artboards match the live site: sector strip instead of client logos, no testimonial, no phone, real contact details and ABN.\n\nTwo things the artboards can't show. The booking buttons are live links to cal.com on the real site. And the sector strip replaced client logos deliberately \u2014 government marks are restricted and client logos need written permission, so logos only go back if approvals come through."
+    }
   ],
-  "launch": { "view": "focused", "file": "Main.dc.html" }
+  "launch": {
+    "view": "focused",
+    "file": "Main.dc.html"
+  }
 }
