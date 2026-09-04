@@ -4,8 +4,12 @@
  * render visibly as one on the page — replace it, don't delete it.
  */
 
-/** Public origin, used for canonical URLs, sitemap and Open Graph tags. */
-export const SITE_URL = 'https://example.com';
+/**
+ * Canonical public origin — used for canonical URLs, the sitemap and Open Graph
+ * tags. shab.au and www.shab.com.au redirect here at the edge, so this value is
+ * the single answer search engines get.
+ */
+export const SITE_URL = 'https://shab.com.au';
 
 /** Cal.com booking page. Create a free account, then paste the link here. */
 export const BOOKING_URL = '[YOUR CAL.COM LINK]';

@@ -58,6 +58,17 @@ test.describe('landing page', () => {
     expect(overflows).toBe(false);
   });
 
+  test('canonical and Open Graph URLs use the real domain', async ({ page }) => {
+    const canonical = await page.locator('link[rel="canonical"]').getAttribute('href');
+    const ogUrl = await page.locator('meta[property="og:url"]').getAttribute('content');
+
+    for (const url of [canonical, ogUrl]) {
+      expect(url, 'metadata URL').toBeTruthy();
+      expect(url, 'placeholder domain must not ship').not.toContain('example.com');
+      expect(new URL(url!).origin).toBe('https://shab.com.au');
+    }
+  });
+
   test('the booking call to action is reachable', async ({ page }) => {
     const cta = page.getByRole('link', { name: /book a 30-minute call/i }).first();
     await expect(cta).toBeVisible();
