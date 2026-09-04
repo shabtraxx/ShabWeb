@@ -560,8 +560,11 @@ const description =
     }
 
     .hero__mark {
-      justify-self: start;
-      width: min(300px, 70%);
+      /* Fill the column rather than sitting at 70% pinned left, which left
+         dead space to the right of a visibly bordered square. Capped so it
+         does not become an enormous square at tablet widths. */
+      justify-self: center;
+      width: min(100%, 420px);
     }
 
     .hero__lead {
