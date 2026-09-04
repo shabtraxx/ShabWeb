@@ -265,31 +265,31 @@ const description =
   .mark {
     opacity: 0;
     animation:
-      mark-draw 12s linear infinite,
-      mark-presence 12s step-end infinite;
+      mark-draw 18s linear infinite,
+      mark-presence 18s step-end infinite;
   }
 
   .mark__nodes {
     opacity: 0;
-    animation: mark-nodes 12s linear infinite;
+    animation: mark-nodes 18s linear infinite;
   }
 
   .mark--data,
   .mark--data .mark__nodes {
-    animation-delay: -4s;
+    animation-delay: -6s;
   }
 
   .mark--cyber,
   .mark--cyber .mark__nodes {
-    animation-delay: -8s;
+    animation-delay: -12s;
   }
 
   @keyframes mark-draw {
     0% {
       stroke-dashoffset: 1;
     }
-    12%,
-    24% {
+    8%,
+    28% {
       stroke-dashoffset: 0;
     }
     33%,
@@ -314,14 +314,14 @@ const description =
   /* Nodes appear once their silhouette is drawn, and leave before it retracts. */
   @keyframes mark-nodes {
     0%,
-    11% {
+    7% {
       opacity: 0;
     }
-    16%,
-    24% {
+    11%,
+    27% {
       opacity: 1;
     }
-    28%,
+    30%,
     100% {
       opacity: 0;
     }
