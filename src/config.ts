@@ -15,7 +15,7 @@ export const SITE_URL = 'https://shab.com.au';
 export const BOOKING_URL = '[YOUR CAL.COM LINK]';
 
 export const CONTACT = {
-  email: '[YOUR EMAIL]',
+  email: 'hello@shab.com.au',
   phone: '[YOUR PHONE]',
 } as const;
 
