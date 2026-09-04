@@ -11,8 +11,9 @@
  */
 export const SITE_URL = 'https://shab.com.au';
 
-/** Cal.com booking page. Create a free account, then paste the link here. */
-export const BOOKING_URL = '[YOUR CAL.COM LINK]';
+/** Cal.com booking page. Points at the 30-minute event type directly, matching
+ * the button copy, so a visitor lands in the booking flow rather than an event menu. */
+export const BOOKING_URL = 'https://cal.com/shaheen-azimi-fyvvuc/30min';
 
 export const CONTACT = {
   email: 'hello@shab.com.au',
