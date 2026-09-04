@@ -1,11 +1,11 @@
 ---
 /**
  * Sector icons. Same 24px drawing grid, square caps and no fill as the
- * service icons. Sized to the average sector label width (labels measure
- * 96-127px), so the icon sits about as close to its label as one uniform
- * size can. The declared stroke is 0.5 because the 24 viewBox scales it up
- * ~4.3x here — that lands near the hero mark's hairline weight rather than
- * the slab a 1.2 stroke would become at this size.
+ * service icons. Rendered at 144px — larger than every label (they measure
+ * 96-127px), and still inside the 161px column the two-up mobile grid gives
+ * them. The declared stroke is 0.35 because the 24 viewBox scales it up 6x
+ * here; that holds the hero mark's hairline weight rather than the slab a
+ * 1.2 stroke would become at this size.
  */
 interface Props {
   icon: 'government' | 'construction' | 'manufacturing' | 'realestate';
@@ -15,12 +15,12 @@ const { icon } = Astro.props;
 ---
 
 <svg
-  width="104"
-  height="104"
+  width="144"
+  height="144"
   viewBox="0 0 24 24"
   fill="none"
   stroke="currentColor"
-  stroke-width="0.5"
+  stroke-width="0.35"
   stroke-linecap="square"
   aria-hidden="true"
 >
