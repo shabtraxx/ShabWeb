@@ -30,14 +30,62 @@ const description =
 
       <div class="hero__mark" aria-hidden="true">
         <svg viewBox="0 0 380 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Only the grid is static. Each phase draws its own silhouette, so
+               the outer form echoes the inner one instead of framing every
+               practice in a shield.
+
+               pathLength="1" normalises every stroke: without it a short tick
+               and a long shield outline draw at wildly different rates. -->
           <rect x="0.5" y="0.5" width="379" height="379" stroke="rgba(255,255,255,0.07)"></rect>
           <path d="M0 95H380M0 190H380M0 285H380M95 0V380M190 0V380M285 0V380" stroke="rgba(255,255,255,0.045)"></path>
-          <path d="M190 46L306 96V196C306 262 254 316 190 336C126 316 74 262 74 196V96L190 46Z" stroke="rgba(255,255,255,0.18)" stroke-width="1.25"></path>
-          <path class="hero__shield" d="M190 96L258 125V193C258 234 228 267 190 281C152 267 122 234 122 193V125L190 96Z" stroke="#3fd0d4" stroke-width="1.5"></path>
-          <path class="hero__tick" d="M158 190L182 214L226 166" stroke="#3fd0d4" stroke-width="2" stroke-linecap="square"></path>
-          <circle cx="190" cy="46" r="3.5" fill="#3fd0d4"></circle>
-          <circle cx="306" cy="96" r="3.5" fill="rgba(255,255,255,0.35)"></circle>
-          <circle cx="74" cy="96" r="3.5" fill="rgba(255,255,255,0.35)"></circle>
+
+          <!-- Digital: layered planes, framed by a plane. -->
+          <g class="mark mark--digital">
+            <path pathLength="1" d="M190 52L328 190L190 330L52 190Z" stroke="rgba(255,255,255,0.18)" stroke-width="1.25"></path>
+            <g stroke="#3fd0d4" stroke-width="1.6">
+              <path pathLength="1" d="M190 104L258 130L190 156L122 130Z"></path>
+              <path pathLength="1" d="M190 164L258 190L190 216L122 190Z"></path>
+              <path pathLength="1" d="M190 224L258 250L190 276L122 250Z"></path>
+            </g>
+            <g class="mark__nodes">
+              <circle cx="190" cy="52" r="3.5" fill="#3fd0d4"></circle>
+              <circle cx="328" cy="190" r="3.5" fill="rgba(255,255,255,0.35)"></circle>
+              <circle cx="52" cy="190" r="3.5" fill="rgba(255,255,255,0.35)"></circle>
+            </g>
+          </g>
+
+          <!-- Data: concentric rings, framed by a ring. -->
+          <g class="mark mark--data">
+            <circle pathLength="1" cx="190" cy="190" r="138" stroke="rgba(255,255,255,0.18)" stroke-width="1.25"></circle>
+            <g stroke="#3fd0d4" stroke-width="1.6">
+              <circle pathLength="1" cx="190" cy="190" r="32"></circle>
+              <circle pathLength="1" cx="190" cy="190" r="58"></circle>
+              <circle pathLength="1" cx="190" cy="190" r="84"></circle>
+            </g>
+            <g class="mark__nodes">
+              <circle cx="190" cy="132" r="5" fill="#3fd0d4"></circle>
+              <circle cx="248" cy="190" r="5" fill="#3fd0d4"></circle>
+              <circle cx="190" cy="248" r="5" fill="#3fd0d4"></circle>
+              <circle cx="132" cy="190" r="5" fill="#3fd0d4"></circle>
+              <circle cx="190" cy="52" r="3.5" fill="#3fd0d4"></circle>
+              <circle cx="310" cy="259" r="3.5" fill="rgba(255,255,255,0.35)"></circle>
+              <circle cx="70" cy="259" r="3.5" fill="rgba(255,255,255,0.35)"></circle>
+            </g>
+          </g>
+
+          <!-- Cyber: the shield, framed by a shield. -->
+          <g class="mark mark--cyber">
+            <path pathLength="1" d="M190 46L306 96V196C306 262 254 316 190 336C126 316 74 262 74 196V96L190 46Z" stroke="rgba(255,255,255,0.18)" stroke-width="1.25"></path>
+            <g stroke="#3fd0d4" stroke-width="1.6">
+              <path pathLength="1" d="M190 96L258 125V193C258 234 228 267 190 281C152 267 122 234 122 193V125L190 96Z"></path>
+              <path pathLength="1" d="M158 190L182 214L226 166" stroke-width="2.2" stroke-linecap="square"></path>
+            </g>
+            <g class="mark__nodes">
+              <circle cx="190" cy="46" r="3.5" fill="#3fd0d4"></circle>
+              <circle cx="306" cy="96" r="3.5" fill="rgba(255,255,255,0.35)"></circle>
+              <circle cx="74" cy="96" r="3.5" fill="rgba(255,255,255,0.35)"></circle>
+            </g>
+          </g>
         </svg>
       </div>
     </div>
@@ -200,32 +248,101 @@ const description =
     line-height: 0;
   }
 
-  .hero__shield,
-  .hero__tick {
-    animation: draw 900ms ease-out both;
-    stroke-dasharray: 700;
-    stroke-dashoffset: 0;
+  /*
+   * The three practices share one mark. Each silhouette draws itself stroke
+   * by stroke, holds, then retracts the same way before the next begins — so
+   * the transition is the drawing, not a fade between finished pictures.
+   *
+   * pathLength="1" in the markup normalises every stroke to a length of 1,
+   * so all of them draw at the same rate regardless of actual path length,
+   * and one dash animation drives the lot.
+   */
+  .mark path,
+  .mark circle {
+    stroke-dasharray: 1;
   }
 
-  .hero__tick {
-    animation-delay: 320ms;
+  .mark {
+    opacity: 0;
+    animation:
+      mark-draw 12s linear infinite,
+      mark-presence 12s step-end infinite;
   }
 
-  @keyframes draw {
-    from {
-      stroke-dashoffset: 700;
+  .mark__nodes {
+    opacity: 0;
+    animation: mark-nodes 12s linear infinite;
+  }
+
+  .mark--data,
+  .mark--data .mark__nodes {
+    animation-delay: -4s;
+  }
+
+  .mark--cyber,
+  .mark--cyber .mark__nodes {
+    animation-delay: -8s;
+  }
+
+  @keyframes mark-draw {
+    0% {
+      stroke-dashoffset: 1;
+    }
+    12%,
+    24% {
+      stroke-dashoffset: 0;
+    }
+    33%,
+    100% {
+      stroke-dashoffset: -1;
+    }
+  }
+
+  /* Steps, so a phase is simply present or absent — the drawing carries the
+     motion and a simultaneous fade would only muddy it. */
+  @keyframes mark-presence {
+    0%,
+    32% {
+      opacity: 1;
+    }
+    33%,
+    100% {
       opacity: 0;
     }
-    to {
-      stroke-dashoffset: 0;
+  }
+
+  /* Nodes appear once their silhouette is drawn, and leave before it retracts. */
+  @keyframes mark-nodes {
+    0%,
+    11% {
+      opacity: 0;
+    }
+    16%,
+    24% {
       opacity: 1;
+    }
+    28%,
+    100% {
+      opacity: 0;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .hero__shield,
-    .hero__tick {
+    .mark,
+    .mark__nodes {
       animation: none;
+      opacity: 0;
+    }
+
+    .mark path,
+    .mark circle {
+      stroke-dasharray: none;
+    }
+
+    /* Hold the established mark, fully drawn. */
+    .mark--cyber,
+    .mark--cyber .mark__nodes {
+      opacity: 1;
     }
   }
 
@@ -246,6 +363,10 @@ const description =
   .trust__sector {
     display: flex;
     flex-direction: column;
+    /* Centred on the rule above, which spans the full column. Left-aligned,
+       the icon sat off to one side of its own rule. */
+    align-items: center;
+    text-align: center;
     gap: 0.75rem;
     padding-top: 1.125rem;
     border-top: 1px solid var(--rule);
