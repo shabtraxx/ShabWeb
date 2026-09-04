@@ -118,25 +118,6 @@ const description =
     </div>
   </section>
 
-  <hr class="rule" />
-
-  <!-- Proof ------------------------------------------------------------ -->
-  <section class="section proof" aria-label="Client feedback">
-    <div class="container proof__inner">
-      <span class="proof__mark" aria-hidden="true"></span>
-      <blockquote class="proof__quote">
-        <p class="placeholder">
-          [TESTIMONIAL — one or two sentences from a client, in their own words, about what changed
-          after the engagement.]
-        </p>
-      </blockquote>
-      <figcaption class="proof__attribution">
-        <span class="proof__name placeholder">[CLIENT NAME]</span>
-        <span class="proof__role placeholder">[ROLE], [COMPANY]</span>
-      </figcaption>
-    </div>
-  </section>
-
   <!-- Closing CTA ------------------------------------------------------ -->
   <section class="cta" id="contact" aria-labelledby="cta-heading">
     <div class="container cta__inner">
@@ -154,11 +135,6 @@ const description =
             {isSet(CONTACT.email)
               ? <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
               : <span class="placeholder">{CONTACT.email}</span>}
-          </li>
-          <li>
-            {isSet(CONTACT.phone)
-              ? <a href={`tel:${CONTACT.phone.replace(/\s+/g, '')}`}>{CONTACT.phone}</a>
-              : <span class="placeholder">{CONTACT.phone}</span>}
           </li>
         </ul>
       </div>
@@ -369,44 +345,6 @@ const description =
     font-size: var(--step-body);
     line-height: 1.65;
     color: var(--text-muted);
-  }
-
-  /* Proof --------------------------------------------------------------- */
-  .proof__inner {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2.25rem;
-  }
-
-  .proof__mark {
-    width: 40px;
-    height: 1px;
-    background: var(--accent);
-  }
-
-  .proof__quote {
-    margin: 0;
-    max-width: 880px;
-  }
-
-  .proof__quote p {
-    font-family: var(--font-display);
-    font-size: var(--step-quote);
-    font-weight: 400;
-    line-height: 1.45;
-    letter-spacing: -0.015em;
-  }
-
-  .proof__attribution {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    font-size: var(--step-small);
-  }
-
-  .proof__name {
-    font-weight: 500;
   }
 
   /* CTA ----------------------------------------------------------------- */
