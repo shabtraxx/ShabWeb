@@ -3,6 +3,9 @@
 Landing page for Shab (Digital | Data | Cyber). Static Astro site, no runtime
 dependencies, deployed to Cloudflare Pages.
 
+[ARCHITECTURE.md](ARCHITECTURE.md) explains how the site is put together and
+why — including the Cloudflare configuration that lives outside this repo.
+
 ## Run it
 
 ```bash
