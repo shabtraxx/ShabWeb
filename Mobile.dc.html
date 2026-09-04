@@ -14,6 +14,15 @@
     a:hover { color: #3fd0d4; }
     p { margin: 0; text-wrap: pretty; }
     h1, h2, h3 { margin: 0; font-family: "Space Grotesk", "Helvetica Neue", Helvetica, sans-serif; text-wrap: balance; }
+
+    .mark path, .mark circle { stroke-dasharray: 1; }
+    .mark { opacity: 0; animation: mark-draw 12s linear infinite, mark-presence 12s step-end infinite; }
+    .mark__nodes { opacity: 0; animation: mark-nodes 12s linear infinite; }
+    .mark--data, .mark--data .mark__nodes { animation-delay: -4s; }
+    .mark--cyber, .mark--cyber .mark__nodes { animation-delay: -8s; }
+    @keyframes mark-draw { 0% { stroke-dashoffset: 1 } 12%, 24% { stroke-dashoffset: 0 } 33%, 100% { stroke-dashoffset: -1 } }
+    @keyframes mark-presence { 0%, 32% { opacity: 1 } 33%, 100% { opacity: 0 } }
+    @keyframes mark-nodes { 0%, 11% { opacity: 0 } 16%, 24% { opacity: 1 } 28%, 100% { opacity: 0 } }
   </style>
 </helmet>
 
@@ -21,9 +30,9 @@
 
   <!-- NAV -->
   <div style="display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid rgba(255,255,255,0.08)">
-    <div style="display: flex; flex-direction: column; gap: 3px">
-      <div style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; line-height: 1">Shab</div>
-      <div style="font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: #8d959e">Digital | Data | Cyber</div>
+    <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 3.96px">
+      <div style="font-family: 'Space Grotesk', sans-serif; font-size: 44px; font-weight: 700; letter-spacing: -0.01em; line-height: 1">Shab</div>
+      <div style="font-size: 9.02px; letter-spacing: 0.54px; margin-right: -0.54px; line-height: 1.2; text-transform: uppercase; color: #8d959e">Digital | Data | Cyber</div>
     </div>
     <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f2f4f6" stroke-width="1.5" stroke-linecap="square" xmlns="http://www.w3.org/2000/svg">
@@ -48,23 +57,74 @@
       <svg width="260" height="260" viewBox="0 0 380 380" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="0.5" y="0.5" width="379" height="379" stroke="rgba(255,255,255,0.07)"></rect>
         <path d="M0 95H380M0 190H380M0 285H380M95 0V380M190 0V380M285 0V380" stroke="rgba(255,255,255,0.045)"></path>
-        <path d="M190 46L306 96V196C306 262 254 316 190 336C126 316 74 262 74 196V96L190 46Z" stroke="rgba(255,255,255,0.18)" stroke-width="1.6"></path>
-        <path d="M190 96L258 125V193C258 234 228 267 190 281C152 267 122 234 122 193V125L190 96Z" stroke="#3fd0d4" stroke-width="2"></path>
-        <path d="M158 190L182 214L226 166" stroke="#3fd0d4" stroke-width="2.6" stroke-linecap="square"></path>
+        <g class="mark mark--digital">
+          <path pathLength="1" d="M190 52L328 190L190 330L52 190Z" stroke="rgba(255,255,255,0.18)" stroke-width="1.25"></path>
+          <g stroke="#3fd0d4" stroke-width="1.6">
+            <path pathLength="1" d="M190 104L258 130L190 156L122 130Z"></path>
+            <path pathLength="1" d="M190 164L258 190L190 216L122 190Z"></path>
+            <path pathLength="1" d="M190 224L258 250L190 276L122 250Z"></path>
+          </g>
+          <g class="mark__nodes">
+            <circle cx="190" cy="52" r="3.5" fill="#3fd0d4"></circle>
+            <circle cx="328" cy="190" r="3.5" fill="rgba(255,255,255,0.35)"></circle>
+            <circle cx="52" cy="190" r="3.5" fill="rgba(255,255,255,0.35)"></circle>
+          </g>
+        </g>
+        <g class="mark mark--data">
+          <circle pathLength="1" cx="190" cy="190" r="138" stroke="rgba(255,255,255,0.18)" stroke-width="1.25"></circle>
+          <g stroke="#3fd0d4" stroke-width="1.6">
+            <circle pathLength="1" cx="190" cy="190" r="32"></circle>
+            <circle pathLength="1" cx="190" cy="190" r="58"></circle>
+            <circle pathLength="1" cx="190" cy="190" r="84"></circle>
+          </g>
+          <g class="mark__nodes">
+            <circle cx="190" cy="132" r="5" fill="#3fd0d4"></circle>
+            <circle cx="248" cy="190" r="5" fill="#3fd0d4"></circle>
+            <circle cx="190" cy="248" r="5" fill="#3fd0d4"></circle>
+            <circle cx="132" cy="190" r="5" fill="#3fd0d4"></circle>
+            <circle cx="190" cy="52" r="3.5" fill="#3fd0d4"></circle>
+            <circle cx="310" cy="259" r="3.5" fill="rgba(255,255,255,0.35)"></circle>
+            <circle cx="70" cy="259" r="3.5" fill="rgba(255,255,255,0.35)"></circle>
+          </g>
+        </g>
+        <g class="mark mark--cyber">
+          <path pathLength="1" d="M190 46L306 96V196C306 262 254 316 190 336C126 316 74 262 74 196V96L190 46Z" stroke="rgba(255,255,255,0.18)" stroke-width="1.25"></path>
+          <g stroke="#3fd0d4" stroke-width="1.6">
+            <path pathLength="1" d="M190 96L258 125V193C258 234 228 267 190 281C152 267 122 234 122 193V125L190 96Z"></path>
+            <path pathLength="1" d="M158 190L182 214L226 166" stroke-width="2.2" stroke-linecap="square"></path>
+          </g>
+          <g class="mark__nodes">
+            <circle cx="190" cy="46" r="3.5" fill="#3fd0d4"></circle>
+            <circle cx="306" cy="96" r="3.5" fill="rgba(255,255,255,0.35)"></circle>
+            <circle cx="74" cy="96" r="3.5" fill="rgba(255,255,255,0.35)"></circle>
+          </g>
+        </g>
       </svg>
     </div>
   </div>
 
   <div style="height: 1px; background: rgba(255,255,255,0.08)"></div>
 
-  <!-- TRUST -->
+  <!-- SECTORS -->
   <div style="display: flex; flex-direction: column; gap: 20px; padding: 36px 24px">
-    <div style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6f7780">Trusted by teams at</div>
-    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
-      <div style="height: 48px; display: flex; align-items: center; justify-content: center; border: 1px dashed rgba(255,255,255,0.14); font-size: 12px; color: #6f7780">[CLIENT LOGO]</div>
-      <div style="height: 48px; display: flex; align-items: center; justify-content: center; border: 1px dashed rgba(255,255,255,0.14); font-size: 12px; color: #6f7780">[CLIENT LOGO]</div>
-      <div style="height: 48px; display: flex; align-items: center; justify-content: center; border: 1px dashed rgba(255,255,255,0.14); font-size: 12px; color: #6f7780">[CLIENT LOGO]</div>
-      <div style="height: 48px; display: flex; align-items: center; justify-content: center; border: 1px dashed rgba(255,255,255,0.14); font-size: 12px; color: #6f7780">[CLIENT LOGO]</div>
+    <div style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6f7780">Delivered across</div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px">
+      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08)">
+        <div style="line-height: 0"><svg width="144" height="144" viewBox="0 0 24 24" fill="none" stroke="#3fd0d4" stroke-width="0.35" stroke-linecap="square" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 21h17"></path><path d="M4.5 8.5L12 3.5l7.5 5"></path><path d="M4.5 8.5h15"></path><path d="M7.5 8.5v9M12 8.5v9M16.5 8.5v9"></path></svg></div>
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: -0.01em; color: #b8c0c8">Government</div>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08)">
+        <div style="line-height: 0"><svg width="144" height="144" viewBox="0 0 24 24" fill="none" stroke="#3fd0d4" stroke-width="0.35" stroke-linecap="square" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 19.5h19"></path><path d="M5 19.5v-3a7 7 0 0114 0v3"></path><path d="M9.5 10.2v6.3M14.5 10.2v6.3"></path><path d="M12 9.5V7"></path></svg></div>
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: -0.01em; color: #b8c0c8">Construction</div>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08)">
+        <div style="line-height: 0"><svg width="144" height="144" viewBox="0 0 24 24" fill="none" stroke="#3fd0d4" stroke-width="0.35" stroke-linecap="square" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 20.5h19"></path><path d="M3.5 20.5V9.5l5 3.5v-3.5l5 3.5v-3.5l5 3.5v11"></path><path d="M15.5 12V4.5h3V14"></path></svg></div>
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: -0.01em; color: #b8c0c8">Manufacturing</div>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08)">
+        <div style="line-height: 0"><svg width="144" height="144" viewBox="0 0 24 24" fill="none" stroke="#3fd0d4" stroke-width="0.35" stroke-linecap="square" xmlns="http://www.w3.org/2000/svg"><path d="M3 10l9-6.5 9 6.5"></path><path d="M5.5 8.5V21M18.5 8.5V21"></path><path d="M3.5 21h17"></path><path d="M9.5 21v-6h5v6"></path></svg></div>
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: -0.01em; color: #b8c0c8">Real estate</div>
+      </div>
     </div>
   </div>
 
@@ -138,34 +198,22 @@
     </div>
   </div>
 
-  <div style="height: 1px; background: rgba(255,255,255,0.08)"></div>
-
-  <!-- PROOF -->
-  <div style="display: flex; flex-direction: column; gap: 24px; padding: 48px 24px">
-    <div style="width: 32px; height: 1px; background: {{accent}}"></div>
-    <p style="font-size: 21px; line-height: 1.45; font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.01em; color: #e8ecef">[TESTIMONIAL — one or two sentences from a client, in their own words, about what changed after the engagement.]</p>
-    <div style="display: flex; flex-direction: column; gap: 4px">
-      <div style="font-size: 14px; font-weight: 500">[CLIENT NAME]</div>
-      <div style="font-size: 14px; color: #8d959e">[ROLE], [COMPANY]</div>
-    </div>
-  </div>
-
   <!-- CTA -->
   <div style="display: flex; flex-direction: column; gap: 24px; padding: 48px 24px; background: #14181e; border-top: 1px solid rgba(255,255,255,0.08)">
     <h2 style="font-size: 26px; line-height: 1.2; font-weight: 600; letter-spacing: -0.02em">Tell us what is keeping you up.</h2>
     <p style="font-size: 15px; line-height: 1.65; color: #a3abb4">Thirty minutes, no charge. If it is not something we should take on, we will say so and point you somewhere better.</p>
     <div style="display: flex; align-items: center; justify-content: center; height: 52px; border-radius: 2px; background: {{accent}}; color: #06181a; font-size: 15px; font-weight: 600">Book a 30-minute call</div>
-    <div style="display: flex; flex-direction: column; gap: 6px">
-      <div style="font-size: 14px; color: #b8c0c8">[YOUR EMAIL]</div>
-      <div style="font-size: 14px; color: #b8c0c8">[YOUR PHONE]</div>
+    <div style="display: flex; align-items: center; justify-content: center; gap: 10px">
+      <div style="line-height: 0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3fd0d4" stroke-width="1.6" stroke-linecap="square" xmlns="http://www.w3.org/2000/svg"><rect x="2.5" y="5" width="19" height="14" rx="1"></rect><path d="M2.5 6.5L12 13l9.5-6.5"></path></svg></div>
+      <div style="font-size: 14px; color: #b8c0c8">hello@shab.com.au</div>
     </div>
   </div>
 
   <!-- FOOTER -->
   <div style="display: flex; flex-direction: column; gap: 24px; padding: 36px 24px 44px 24px">
-    <div style="display: flex; flex-direction: column; gap: 3px">
-      <div style="font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700">Shab</div>
-      <div style="font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: #6f7780">Digital | Data | Cyber</div>
+    <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 3.6px">
+      <div style="font-family: 'Space Grotesk', sans-serif; font-size: 40px; font-weight: 700; letter-spacing: -0.01em; line-height: 1">Shab</div>
+      <div style="font-size: 8.20px; letter-spacing: 0.49px; margin-right: -0.49px; line-height: 1.2; text-transform: uppercase; color: #6f7780">Digital | Data | Cyber</div>
     </div>
     <div style="display: flex; flex-wrap: wrap; gap: 20px">
       <a href="#" style="font-size: 14px; color: #8d959e">Services</a>
@@ -175,12 +223,12 @@
       <a href="#" style="font-size: 14px; color: #8d959e">Contact</a>
     </div>
     <div style="height: 1px; background: rgba(255,255,255,0.08)"></div>
-    <div style="font-size: 13px; line-height: 1.6; color: #6f7780">[REGISTERED ADDRESS]<br>Company no. [COMPANY NUMBER]</div>
+    <div style="font-size: 13px; line-height: 1.6; color: #6f7780">Adelaide, South Australia<br>ABN 45 074 849 006</div>
   </div>
 
 </div>
 </x-dc>
-<script data-dc-script data-props='{"accent":{"editor":"color","default":"#3fd0d4","options":["#3fd0d4","#7dd44f","#d4a13f","#6f8dff"]},"$preview":{"width":390,"height":4240}}'>
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#3fd0d4","options":["#3fd0d4","#7dd44f","#d4a13f","#6f8dff"]},"$preview":{"width":390,"height":4300}}'>
 class Component extends DCLogic {
   renderVals() {
     return { accent: this.props.accent ?? '#3fd0d4' };
