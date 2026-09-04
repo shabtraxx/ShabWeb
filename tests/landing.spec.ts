@@ -73,6 +73,18 @@ test.describe('landing page', () => {
     const cta = page.getByRole('link', { name: /book a 30-minute call/i }).first();
     await expect(cta).toBeVisible();
   });
+
+  test('every booking button opens the scheduler, not an anchor', async ({ page }) => {
+    const hrefs = await page
+      .getByRole('link', { name: /book a (30-minute )?call/i })
+      .evaluateAll((links) => links.map((link) => link.getAttribute('href')!));
+
+    expect(hrefs.length, 'the page should carry booking buttons').toBeGreaterThan(0);
+    for (const href of hrefs) {
+      expect(href, 'must not fall back to the contact anchor').not.toBe('#contact');
+      expect(href).toMatch(/^https:\/\/cal\.com\//);
+    }
+  });
 });
 
 test.describe('footer business details', () => {
