@@ -2,3 +2,5 @@ node_modules/
 dist/
 .astro/
 shab-landing-page.html
+test-results/
+playwright-report/
