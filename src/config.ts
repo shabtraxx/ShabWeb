@@ -30,7 +30,7 @@ export const COMPANY = {
  * Date the privacy policy last changed, ISO format. Bump it whenever the
  * policy text changes — readers and procurement reviewers look for it.
  */
-export const PRIVACY_UPDATED = '2026-09-04';
+export const PRIVACY_UPDATED = '2026-09-05';
 
 export const NAV = [
   { label: 'Services', href: '#services' },

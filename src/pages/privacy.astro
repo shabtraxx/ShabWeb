@@ -12,7 +12,9 @@
  *   - the hosting provider (currently Cloudflare Pages)
  *   - whether Cloudflare Web Analytics is enabled
  *   - the scheduling provider (currently Cal.com)
- *   - the email provider, which is still unnamed below because none is chosen
+ *   - the email path: Cloudflare Email Routing forwards to a Microsoft mailbox.
+ *     If you move to Zoho, Google Workspace or Microsoft 365, rename both the
+ *     disclosure and the overseas-recipients sentence.
  *   - the retention period, which is stated as seven years
  *
  * Bump PRIVACY_UPDATED in src/config.ts whenever this text changes.
@@ -59,8 +61,9 @@ const updated = new Date(PRIVACY_UPDATED).toLocaleDateString('en-AU', {
         aggregate figures. No individual visitor is identified to us.
       </p>
       <p>
-        <strong>When you email us.</strong> We keep your message and contact details so we can
-        reply, and so we can carry out work for you if we go on to do so.
+        <strong>When you email us.</strong> Mail sent to our address is forwarded by Cloudflare
+        Email Routing into a mailbox hosted by Microsoft. We keep your message and contact details
+        so we can reply, and so we can carry out work for you if we go on to do so.
       </p>
       <p>
         <strong>When you book a call.</strong> The booking button opens a scheduling page provided
@@ -91,13 +94,16 @@ const updated = new Date(PRIVACY_UPDATED).toLocaleDateString('en-AU', {
       <h2>Who we disclose it to, including overseas</h2>
       <p>
         We do not sell personal information, and we do not disclose it for anyone else's marketing.
-        We disclose it only to the service providers we use to operate the business — our hosting
-        provider, our scheduling provider, and our email provider — and where the law requires it.
+        We disclose it only to the service providers we use to operate the business — Cloudflare
+        for hosting, Cal.com for scheduling, and, for email, Cloudflare Email Routing, which
+        forwards messages sent to us into a mailbox hosted by Microsoft — and where the law
+        requires it.
       </p>
       <p>
-        Some of those providers are located outside Australia. Cloudflare and Cal.com are based in
-        the United States and operate infrastructure in several countries, so information handled
-        through this site and its booking page is likely to be stored or processed overseas.
+        Some of those providers are located outside Australia. Cloudflare, Cal.com and Microsoft
+        are based in the United States and operate infrastructure in several countries, so
+        information handled through this site, its booking page, or an email you send us is
+        likely to be stored or processed overseas.
       </p>
 
       <h2>Access and correction</h2>

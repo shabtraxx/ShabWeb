@@ -101,6 +101,9 @@ test.describe('privacy page', () => {
       'Cloudflare',
     );
     await expect(body, 'overseas disclosure must be stated').toContainText('outside Australia');
+    await expect(body, 'every overseas recipient must be named').toContainText('Microsoft');
+    await expect(body, 'the email path must be described').toContainText('Cloudflare Email Routing');
+    await expect(body, 'no provider should be left generic').not.toContainText('our email provider');
   });
 
   test('carries a last-updated date', async ({ page }) => {
