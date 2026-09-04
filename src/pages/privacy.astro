@@ -1,51 +1,137 @@
 ---
+/**
+ * NOTE FOR THE OWNER — this comment is not rendered.
+ *
+ * This policy is written to be factually accurate about what the site actually
+ * does, and structured the way an Australian Privacy Principles reviewer
+ * expects. It is not legal advice and has not been reviewed by a lawyer. Have
+ * it checked before you rely on it, particularly if you tender for government
+ * or enterprise work where a privacy questionnaire is part of procurement.
+ *
+ * Keep it true. If any of the following change, the text has to change too:
+ *   - the hosting provider (currently Cloudflare Pages)
+ *   - whether Cloudflare Web Analytics is enabled
+ *   - the scheduling provider (currently Cal.com)
+ *   - the email provider, which is still unnamed below because none is chosen
+ *   - the retention period, which is stated as seven years
+ *
+ * Bump PRIVACY_UPDATED in src/config.ts whenever this text changes.
+ */
 import Base from '../layouts/Base.astro';
-import { COMPANY, CONTACT, isSet } from '../config';
+import { COMPANY, CONTACT, PRIVACY_UPDATED, isSet } from '../config';
+
+const updated = new Date(PRIVACY_UPDATED).toLocaleDateString('en-AU', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
 ---
 
-<Base title="Privacy — Shab" description="How Shab handles personal data.">
-  <article class="section container prose">
-    <h1>Privacy</h1>
-    <p class="prose__note">
-      A starting point, not legal advice. Have it reviewed before you rely on it, and replace
-      every bracketed value below.
-    </p>
+<Base
+  title="Privacy — Shab"
+  description="How Shab collects, uses, stores and discloses personal information, under the Privacy Act 1988 (Cth)."
+>
+  <article class="section container">
+    <div class="prose">
+      <h1>Privacy</h1>
+      <p class="prose__lead">
+        This policy explains how we handle personal information, and how to reach us about it.
+      </p>
 
-    <h2>Who we are</h2>
-    <p>
-      {COMPANY.name}, <span class:list={[!isSet(COMPANY.abn) && 'placeholder']}>ABN {COMPANY.abn}</span>,
-      <span class:list={[!isSet(COMPANY.address) && 'placeholder']}>{COMPANY.address}</span>.
-      We handle personal information under the Privacy Act 1988 (Cth) and the Australian
-      Privacy Principles.
-    </p>
+      <h2>Who we are</h2>
+      <p>
+        {COMPANY.name}, <span class:list={[!isSet(COMPANY.abn) && 'placeholder']}>ABN {COMPANY.abn}</span>,
+        of <span class:list={[!isSet(COMPANY.address) && 'placeholder']}>{COMPANY.address}</span>.
+        We handle personal information in accordance with the Privacy Act 1988 (Cth) and the
+        Australian Privacy Principles.
+      </p>
 
-    <h2>What this site collects</h2>
-    <p>
-      This site sets no cookies and runs no third-party trackers. Fonts are served from this
-      domain rather than a third party, so visiting a page sends nothing to anyone else. If
-      analytics are enabled they are aggregate only and identify no individual visitor.
-    </p>
+      <h2>What we collect, and why</h2>
+      <p>
+        <strong>When you visit this site.</strong> The site is hosted on Cloudflare Pages. Cloudflare
+        receives your IP address and basic request information — the page requested, the time, your
+        browser and device type — and holds it briefly to deliver the page and to protect the site
+        from attack and abuse. We do not use that information to identify you.
+      </p>
+      <p>
+        <strong>Analytics.</strong> We use Cloudflare Web Analytics to understand which pages are
+        read. It sets no cookies, does not track you across other websites, and reports only
+        aggregate figures. No individual visitor is identified to us.
+      </p>
+      <p>
+        <strong>When you email us.</strong> We keep your message and contact details so we can
+        reply, and so we can carry out work for you if we go on to do so.
+      </p>
+      <p>
+        <strong>When you book a call.</strong> The booking button opens a scheduling page provided
+        by Cal.com. Anything you enter there — typically your name, email address and a note about
+        what you want to discuss — is collected by Cal.com and passed to us. Cal.com handles it
+        under its own privacy policy as well as this one.
+      </p>
 
-    <h2>Booking a call</h2>
-    <p>
-      The booking button opens a scheduling page hosted by a third party. Anything you enter
-      there is handled under that provider's privacy policy as well as ours.
-    </p>
+      <h2>Cookies</h2>
+      <p>
+        This site sets no cookies. Fonts are served from this domain rather than from a third-party
+        font service, so reading a page does not report your visit to anyone beyond our host.
+      </p>
 
-    <h2>When you contact us</h2>
-    <p>
-      If you email us we keep the message and your contact details so we can respond and, where
-      relevant, carry out work for you. We do not sell personal information or disclose it
-      overseas except through the service providers described above.
-    </p>
+      <h2>Storage, security and how long we keep things</h2>
+      <p>
+        We take reasonable steps to protect personal information from misuse, loss, and unauthorised
+        access or disclosure. In practice that means access is limited to people who need it,
+        accounts are protected by multi-factor authentication, and information is held in reputable
+        hosted services rather than on unmanaged devices.
+      </p>
+      <p>
+        We keep business correspondence and engagement records for seven years, which reflects
+        Australian record-keeping obligations, and destroy or de-identify personal information when
+        we no longer need it and are not required to keep it.
+      </p>
 
-    <h2>Access, correction and complaints</h2>
-    <p>
-      You may ask what personal information we hold about you and ask us to correct it. Write to
-      <span class:list={[!isSet(CONTACT.email) && 'placeholder']}>{CONTACT.email}</span>.
-      If you are not satisfied with how we handle a privacy matter you can refer it to the
-      Office of the Australian Information Commissioner at oaic.gov.au.
-    </p>
+      <h2>Who we disclose it to, including overseas</h2>
+      <p>
+        We do not sell personal information, and we do not disclose it for anyone else's marketing.
+        We disclose it only to the service providers we use to operate the business — our hosting
+        provider, our scheduling provider, and our email provider — and where the law requires it.
+      </p>
+      <p>
+        Some of those providers are located outside Australia. Cloudflare and Cal.com are based in
+        the United States and operate infrastructure in several countries, so information handled
+        through this site and its booking page is likely to be stored or processed overseas.
+      </p>
+
+      <h2>Access and correction</h2>
+      <p>
+        You may ask what personal information we hold about you, ask for a copy, and ask us to
+        correct it if it is wrong or out of date. Write to <span
+          class:list={[!isSet(CONTACT.email) && 'placeholder']}>{CONTACT.email}</span> and we
+        will respond within a reasonable period. We will tell you if we cannot give you access, and
+        why.
+      </p>
+
+      <h2>Complaints</h2>
+      <p>
+        If you think we have mishandled your personal information, write to <span
+          class:list={[!isSet(CONTACT.email) && 'placeholder']}>{CONTACT.email}</span> and we
+        will look into it and respond. If you are not satisfied with our response, you can refer the
+        matter to the Office of the Australian Information Commissioner at oaic.gov.au.
+      </p>
+
+      <h2>Data breaches</h2>
+      <p>
+        If a data breach occurs that is likely to result in serious harm, we will notify affected
+        individuals and the Office of the Australian Information Commissioner, as required by the
+        Notifiable Data Breaches scheme.
+      </p>
+
+      <h2>Changes to this policy</h2>
+      <p>
+        We update this policy when what we do changes. The current version is shown below; if we
+        make a significant change we will say so on this page.
+      </p>
+
+      <p class="prose__updated">Last updated {updated}.</p>
+    </div>
   </article>
 </Base>
 
@@ -73,11 +159,21 @@ import { COMPANY, CONTACT, isSet } from '../config';
     color: var(--text-muted);
   }
 
-  .prose__note {
-    padding: 1rem 1.25rem;
-    background: var(--panel);
-    border: 1px solid var(--rule-soft);
-    border-radius: var(--radius);
-    color: var(--text-dim);
+  .prose strong {
+    color: var(--text-body);
+    font-weight: 500;
+  }
+
+  .prose__lead {
+    font-size: var(--step-lead);
+    line-height: 1.65;
+  }
+
+  .prose__updated {
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--rule);
+    font-size: var(--step-fine);
+    color: var(--text-faint);
   }
 </style>
